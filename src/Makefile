@@ -47,6 +47,7 @@ floppy.img:
 	@echo "Creating floppy image..."
 	@dd if=/dev/zero of=$@ bs=512 count=2880
 	@sudo mkfs.vfat -R 3 -F 12 -h 0 -f 2 -v -n "AESYCOS    " -r 244 -s 1 -S 512 $@
+	@echo "Happy Days!"
 
 loop0: floppy.img
 	@echo "Setting up loopback device " $< " as /dev/" $@

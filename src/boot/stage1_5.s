@@ -36,6 +36,9 @@ start:
     mov si, msgStage15
     call printString
 
+	mov ax, 0x00
+	int 0x16
+
 	mov bx,cs         ;put codesegment to bx
         add bh,0x20       ;add 2000 to bx
         mov ds,bx         ;and put it to ds

@@ -110,6 +110,7 @@ lbaCHS:
     mov byte [absHead], dl  ; quotient is absHead
     mov byte [absTrack], al ; remainder is absTrack
     ret
+
 dataseg:  	dw 0x07c0
 stackseg: 	dw 0x07e0
 stacksize: 	dw 0x0400
@@ -118,14 +119,16 @@ stage15: 	dw 0x0500
 loader:
     cli
     xor		ax, ax
-    mov 	es, ax
-    mov		ax, word [dataseg]
-    mov		ds, ax
+    mov		ax, 0x7c00	
+    mov 	ds, ax
+    mov		es, ax
+    mov 	fs, ax
+    mov 	gs, ax
     
-    mov		ax, word [stackseg]
+    mov		ax, ax
     mov		ss, ax
 
-    mov 	ax, word [stacksize] 
+    mov 	ax, 0xffff
     mov 	sp, ax
     sti
     

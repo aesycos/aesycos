@@ -119,7 +119,7 @@ stage15: 	dw 0x0500
 loader:
     cli
     xor		ax, ax
-    mov		ax, 0x7c00	
+    mov		ax, 0x07c0	
     mov 	ds, ax
     mov		es, ax
     mov 	fs, ax
